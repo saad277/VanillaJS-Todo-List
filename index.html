@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>
+	To Do List
+	</title>
+</head>
+
+<script src="js/jquery.js"></script>
+<link rel="stylesheet" href="css/bootstrap.css" >
+
+
+
+
+<script src="js/bootstrap.min.js" >  	</script>
+	
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+
+<body id="body">
+
+
+<div class="heading">	<h1>	To-Do List		</h1>			</div>
+
+<div class="container form">
+<div class="form-inline ">
+	
+	<input type="text" class="form-control" style="width: 500px;" id="field">
+	
+	<button  class="btn btn-success" onClick="create();" style="margin-left: 50px;" id="add"> Add</button>
+	
+	<button class="btn btn-dark" style="margin-left: 20px;" onClick="remove1()">	Clear	</button>
+	
+</div>
+	</div>
+	<p>  </p>
+	
+	<div class="container" id="listview">
+		
+		
+		
+	</div>
+	
+
+<script>
+	
+	
+	
+	
+	function create(){
+		
+		
+		var text=document.getElementById("field").value;
+		
+		if(text!="") {
+		
+		
+			if(listv==null) {
+				
+				var listv=document.createElement("div"); 
+					
+				 var listclass1=document.createAttribute("class");
+				
+				listclass1.value="container";
+				
+				listv.setAttributeNode(listclass1); 
+				
+				 var listid=document.createAttribute("id");
+				
+				listid.value="listview";
+				
+					listv.setAttributeNode(listid); 
+				
+				var body=document.getElementById("body");
+				
+				body.appendChild(listv);
+			
+			}
+			
+		
+		
+		
+		
+		
+		
+		
+			
+			var listv2=document.getElementById("listview");
+		
+		var new1=document.createElement("p");
+		
+		
+		
+		var textnode=document.createTextNode(text);
+		
+		new1.append(textnode);
+			
+		
+			
+		
+				
+		
+		
+		listv2.appendChild(new1);
+		
+		var listclass=document.createAttribute("class");
+		
+		listclass.value="list ";
+		
+		new1.setAttributeNode(listclass);
+		
+		
+		
+		
+		
+		var button=document.createElement("button");
+		
+		buttonclass=document.createAttribute("class");
+		
+		buttonclass.value="btn btn-danger button";
+		
+		var buttontext=document.createTextNode("Delete");
+		
+		button.appendChild(buttontext);
+		
+		button.setAttributeNode(buttonclass);
+		
+			new1.appendChild(button);
+		
+		
+			
+			button.addEventListener("click", function(){
+  			  var current = this.parentElement;
+    			current.remove();
+				
+				
+				});
+		
+			var button2=document.createElement("button");
+		
+		buttonclass2=document.createAttribute("class");
+		
+		buttonclass2.value="btn btn-info button ";
+		
+		var buttontext2=document.createTextNode("Edit");
+		
+		button2.appendChild(buttontext2);
+		
+		button2.setAttributeNode(buttonclass2);
+		
+			new1.appendChild(button2);
+		
+			
+			
+			button2.addEventListener("click",function(){
+				
+				var current=this.parentElement;
+				
+				var newtext=prompt("Edit Entry");
+				
+    			current.innerHTML=newtext;
+				
+				current.appendChild(button);
+				
+				current.appendChild(button2);
+				
+				
+				
+				
+				
+				
+			});
+			
+			
+		
+			var text2=document.getElementById("field").value="";
+		
+		}
+		
+		else {
+			
+			alert("Enter item");
+			
+		}
+		
+		
+	}
+	
+	function remove1() {
+		
+		
+		var list=document.getElementById("listview");
+		
+		list.remove();
+		
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	</script>
+
+
+</body>
+</html>
